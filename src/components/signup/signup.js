@@ -2,13 +2,13 @@ import React from 'react';
 import classes from './styles.module.scss'
 
 
-const login = () => (
+const signUp = () => (
 
         <div>
-            <div className= {classes.loginContainer}>
+            <div className= {classes.signUpContainer}>
 
                 <form >
-                    <h2>Whats Cooking?</h2>
+                    <h2>Create Acccount</h2>
 
 
                     <label for='username'>Username
@@ -17,6 +17,10 @@ const login = () => (
 
                     <label for='password'>Password
                         <input type='password' id ='password' name = 'password' placeholder= 'Password'/>
+                    </label>
+
+                    <label for='repassword'>Password
+                        <input type='repassword' id ='repassword' name = 'repassword' placeholder= 'Password'/>
                     </label>
 
                     <button type = "submit">Login</button>
@@ -29,4 +33,4 @@ const login = () => (
 )
 
 
-export default login;
+export default signUp;
