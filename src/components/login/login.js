@@ -21,7 +21,6 @@ const login = () => (
 
                     <button type = "submit">Login</button>
                     <button type = "submit">Create Account</button>
-                    
 
                 </form>
             </div>

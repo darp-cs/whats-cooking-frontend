@@ -1,9 +1,24 @@
-import react from 'React';
+import React from 'react';
+import RecipeList from '../recipeList/recipeList';
 
-const recipes = () =>(
-    <div>Recipes Page</div>
-)
+const Recipes = (props) =>{
+
+    const trending = props.recipes
+
+    let getTrending = () =>{
+
+    }
+
+
+    return (
+        <>
+
+        <div>Recipes Page</div>
+        <RecipeList trending = {trending}/>
+        </>
+    )
+}
 
 
 
-export default recipes;
+export default Recipes;
