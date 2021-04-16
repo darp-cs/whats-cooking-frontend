@@ -1,11 +1,21 @@
 import logo from './logo.svg';
-import './App.css';
-import Nav from './components/navbar/navbar';
+import classes from './App.module.scss'
+import Home from './containers/Home/Home'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import CustomerAccess from './containers/CustomerAccess/CustomerAccess'
+
+// Everything below will be deleted
 
 function App() {
   return (
-    <div className="App">
-      <Nav/>
+
+    <div className = {classes.app}>
+      <Router>
+        <Switch>
+          <Route path = "/" exact component = {Home}/>
+          <Route path = "/access/:type" exact component = {CustomerAccess}/>
+        </Switch>
+      </Router>
     </div>
   );
 }
