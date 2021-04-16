@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import classes from './styles.module.scss'
+import AccountContext from "../accountContext/accountContext";
+
+const Login = (props) => {
 
 
-const login = () => (
-
+    console.log("in Login")
+    const { switchToSignup } = useContext(AccountContext);
+        return (
         <div>
             <div className= {classes.loginContainer}>
 
@@ -25,7 +29,8 @@ const login = () => (
                 </form>
             </div>
         </div>
-)
+        )
+}
 
 
-export default login;
+export default Login;
