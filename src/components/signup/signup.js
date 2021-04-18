@@ -1,43 +1,156 @@
-import React, {useContext} from 'react';
-import classes from './styles.module.scss'
-import AccountContext from '../accountContext/accountContext'
+import React, { Component, useState, useContext } from "react";
+import './styles.css';
+import AccountContext from "../accountContext/accountContext";
 
+const emailRegex = RegExp(
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+);
 
+const formValid = ({ formErrors, ...rest }) => {
+  let valid = true;
 
-const SignUp = (props) => {
+  // validate form errors being empty
+  Object.values(formErrors).forEach(val => {
+    val.length > 0 && (valid = false);
+  });
 
-        const { switchToSignin } = useContext(AccountContext);
+  // validate the form was filled out
+  Object.values(rest).forEach(val => {
+    val === null && (valid = false);
+  });
 
-        
-        return(
-        <div>
-            <div className= {classes.signUpContainer}>
+  return valid;
+};
 
-                <form >
-                    <h2>Create Acccount</h2>
+const SignUp = (props)=> {
+  
 
+  const [firstName, setFN] = useState(0);
+  const [lastName, setLN] = useState(0);
+  const [email, setEmail] = useState(0);
+  const [passworde, setPass] = useState(0);
+  const [formErrors, setformErrors] = useState(0);
+  const { switchToSignin } = useContext(AccountContext);
+  //const { formErrors } = this.state;
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-                    <label for='username'>Username
-                        <input type='text' id ='username' name = 'username' placeholder= 'Username'/>
-                    </label>
+    if (formValid(this.state)) {
+      console.log(`
+        --SUBMITTING--
+        First Name: ${this.state.firstName}
+        Last Name: ${this.state.lastName}
+        Email: ${this.state.email}
+        Password: ${this.state.password}
+      `);
+    } else {
+      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+    }
+  };
 
-                    <label for='password'>Password
-                        <input type='password' id ='password' name = 'password' placeholder= 'Password'/>
-                    </label>
+//   const handleChange = (e) => {
+//     e.preventDefault();
+//     const { name, value } = e.target;
+//     let formErrors = { ...this.state.formErrors };
 
-                    <label for='repassword'>Password
-                        <input type='repassword' id ='repassword' name = 'repassword' placeholder= 'Password'/>
-                    </label>
+//     switch (name) {
+//       case "firstName":
+//         formErrors.firstName =
+//           value.length < 3 ? "minimum 3 characaters required" : "";
+//         break;
+//       case "lastName":
+//         formErrors.lastName =
+//           value.length < 3 ? "minimum 3 characaters required" : "";
+//         break;
+//       case "email":
+//         formErrors.email = emailRegex.test(value)
+//           ? ""
+//           : "invalid email address";
+//         break;
+//       case "password":
+//         formErrors.password =
+//           value.length < 6 ? "minimum 6 characaters required" : "";
+//         break;
+//       default:
+//         break;
+//     }
 
-                    <button type = "submit">Login</button>
-                    <button type = "submit">Create Account</button>
-                    
+//     this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+//   };
 
-                </form>
+    
+
+    return (
+      <div className="wrapper">
+        <div className="form-wrapper">
+          <h1>Create Account</h1>
+          {/* <form onSubmit={this.handleSubmit} noValidate> */}
+          <form>
+            <div className="firstName">
+              <label htmlFor="firstName">First Name</label>
+              <input
+                //className={formErrors.firstName.length > 0 ? "error" : null}
+                placeholder="First Name"
+                type="text"
+                name="firstName"
+                noValidate
+                //onChange={this.handleChange}
+              />
+              {/* {formErrors.firstName.length > 0 && (
+                <span className="errorMessage">{formErrors.firstName}</span>
+              )} */}
             </div>
+            <div className="lastName">
+              <label htmlFor="lastName">Last Name</label>
+              <input
+                //className={formErrors.lastName.length > 0 ? "error" : null}
+                placeholder="Last Name"
+                type="text"
+                name="lastName"
+                noValidate
+                //onChange={this.handleChange}
+              />
+              {/* {formErrors.lastName.length > 0 && (
+                <span className="errorMessage">{formErrors.lastName}</span>
+              )} */}
+            </div>
+            <div className="email">
+              <label htmlFor="email">Email</label>
+              <input
+                //className={formErrors.email.length > 0 ? "error" : null}
+                placeholder="Email"
+                type="email"
+                name="email"
+                noValidate
+                //onChange={this.handleChange}
+              />
+              {/* {formErrors.email.length > 0 && (
+                <span className="errorMessage">{formErrors.email}</span>
+              )} */}
+            </div>
+            <div className="password">
+              <label htmlFor="password">Password</label>
+              <input
+               //className={formErrors.password.length > 0 ? "error" : null}
+                placeholder="Password"
+                type="password"
+                name="password"
+                noValidate
+                //onChange={this.handleChange}
+              />
+              {/* {formErrors.password.length > 0 && (
+                <span className="errorMessage">{formErrors.password}</span>
+              )} */}
+            </div>
+            <div className="createAccount">
+              <button type="submit">Create Account</button>
+              <small>Already Have an Account?</small>
+            </div>
+          </form>
         </div>
-        )
-}
+      </div>
+    );
+  }
 
 
 export default SignUp;

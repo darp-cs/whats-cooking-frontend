@@ -38,12 +38,12 @@ const AccountBox = (props) =>{
           
           {active === "login" && (
             <>
-              Content Displayed if Loging in
+              
               </>
           )}
           {active === "signup" && (
             <>
-              Content Displayed if Signing in
+              
               </>
           )}
         
