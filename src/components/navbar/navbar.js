@@ -5,30 +5,29 @@ const navbar = (props) =>(
 
    
 
-        <nav class="navbar">
+        <nav className="navbar">
 
         <h3>logo</h3>
 
-        <div class="links">
+        <div className="links">
 
             <ul>
 
             <li><Link className = 'link' to="/">Home</Link></li>
-            <li><Link className = 'link' to="/access/login">Login</Link></li>
-            <li><Link className = 'link' to="/access/signup">Register</Link></li>
+            <li><Link className = 'link' to="/access/login">Login/Register</Link></li>
             <li><Link className = 'link' to="/contact">Contact</Link></li>
 
             </ul>
 
         </div>
 
-        <div class="menubar">
+        <div className="menubar">
 
-            <div class="bar bar1"></div>
+            <div className="bar bar1"></div>
 
-            <div class="bar bar2"></div>
+            <div className="bar bar2"></div>
 
-            <div class="bar bar3"></div>
+            <div className="bar bar3"></div>
 
         </div>
 
