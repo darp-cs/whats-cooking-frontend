@@ -1,13 +1,10 @@
-.contactBack{
-    background: linear-gradient(#e66465, #9198e5);
-    height:1000px;
-}
+
 .wrapper {
-	height:100%;
 	margin:0 auto;
-	position:relative;
     display:flex;
     justify-content: center;
+    background-color: black;
+    position: relative;
 }
 .contactForm input[type="text"],
 .contactForm input[type="email"],
@@ -24,12 +21,11 @@
 	background:#F9F9F9;
 	padding:25px;
     display:inline-block;
-    width:50%;
-    position: absolute;
-    margin-top: 10%;
+    width: 40%;
+    margin: 90px 90px;
 }
 .contactForm h3 {
-	color:black;
+	color: #e43f5a;
 	display:block;
 	font-size:28px;
 }
@@ -37,10 +33,11 @@
 	margin:5px 0 15px;
 	display:block;
 	font-size:13px;
+    color: #e43f5a;
 }
 .contactForm label span {
 	cursor:pointer;
-	color:black;
+	color: #e43f5a;
 	display:block;
 	margin:5px 0;
 	font-weight:900;
@@ -79,7 +76,7 @@
 	cursor:pointer;
 	width:100%;
 	border:none;
-	background:#991D57;
+	background: #e43f5a;
 	background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
 	background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
 	background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);

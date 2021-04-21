@@ -107,7 +107,7 @@ light green: #A3C4BC
   }
   
   .createAccount button {
-    background-color: #519e8a;
+    background-color:  #e43f5a;
     color: #fff;
     border: 2px solid #fff;
     width: 100%;
@@ -122,7 +122,7 @@ light green: #A3C4BC
   .createAccount button:hover {
     color: #519e8a;
     background-color: #fff;
-    border: 2px solid #519e8a;
+    border: 2px solid  #e43f5a;
   }
   
   .createAccount small {
