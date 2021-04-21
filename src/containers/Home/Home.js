@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from '../../components/navbar/navbar'
 import Slider from 'react-slick';
 import classes from './styles.scss'
+import Footer from '../../components/footer/footer'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -25,26 +26,31 @@ const Home = () =>{
           <div className = {classes.container}>
               <NavBar/>
             <h2>Welcome To Whats Cooking</h2>
-            <Slider {...settings}>
-            <div>
-                <img src = {test}/>
+            <div className = "sliderContainer">
+                <Slider {...settings} >
+                <div>
+                    <img src = {test}/>
+                </div>
+                <div>
+                    <img src = {test1}/>
+                </div>
+                <div>
+                    <img src = {test}/>
+                </div>
+                <div>
+                    <img src = {test1}/>
+                </div>
+                <div>
+                    <img src = {test}/>
+                </div>
+                <div>
+                    <img src = {test1}/>
+                </div>
+                </Slider>
             </div>
-            <div>
-                <img src = {test1}/>
-            </div>
-            <div>
-                <img src = {test}/>
-            </div>
-            <div>
-                <img src = {test1}/>
-            </div>
-            <div>
-                <img src = {test}/>
-            </div>
-            <div>
-                <img src = {test1}/>
-            </div>
-            </Slider>
+            
+
+            <Footer/>
         </div>
       )
 }
