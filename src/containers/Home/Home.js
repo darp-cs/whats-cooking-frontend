@@ -25,7 +25,7 @@ const Home = () =>{
       return (
           <div className = {classes.container}>
               <NavBar/>
-            <h2>Welcome To Whats Cooking</h2>
+            <h2>What's Cooking?</h2>
             <div className = "sliderContainer">
                 <Slider {...settings} >
                 <div>
