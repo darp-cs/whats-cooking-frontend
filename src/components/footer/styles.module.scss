@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 .footer{
     padding: 1rem;
     background-color:  #1b1b2f;
@@ -7,31 +9,99 @@
     width: 100%;
     display:flex;
     justify-content: center;
-    color:  #e43f5a;
+    //color:  #e43f5a;
 }
 
+//instagram
 .colOne{
+    /*
     text-decoration: none;
     list-style-type:none;
     padding: 25px;
     margin-left: 10px;
     margin-right: 10px;
+    background: #125688;
+    color: white;
+    border-radius: 15px;
+    font-size: 30px;
+    */
+    padding: 20px;
+	font-size: 30px;
+	width: 70px;
+    height: 80px;
+	text-align: center;
+	text-decoration: none;
+	margin: 5px 5px;
+    background: #125688;
+    color: white;
+    border-radius: 15px;
+    list-style-type: none;
+    margin-right: 10px;
 }
 
+.colOne:hover {
+    opacity: 0.8;
+}
+
+//facebook
 .colTwo{
+    /*
     text-decoration: none;
     list-style-type:none;
     padding: 25px;
     margin-left: 10px;
+    margin-right: 10px;
+    background: #3B5998;
+    color: white;
+    border-radius: 15px;
+    font-size: 30px;
+    */
+    text-decoration: none;
+    padding: 20px;
+	font-size: 30px;
+	width: 70px;
+    height: 80px;
+	text-align: center;
+	margin: 5px 5px;
+    background: #3B5998;
+    color: white;
+    border-radius: 15px;
+    list-style-type: none;
     margin-right: 10px;
 }
 
+.colTwo:hover {
+    opacity: 0.8;
+}
+
+//twitter
 .colThree{
+    /*
     text-decoration: none;
     list-style-type:none;
     padding: 25px;
     margin-left: 10px;
     margin-right: 10px;
+    background: #55ACEE;
+    color: white;
+    border-radius: 15px;
+    font-size: 30px;
+    */
+    padding: 20px;
+	font-size: 30px;
+	width: 70px;
+    height: 80px;
+	text-align: center;
+	text-decoration: none;
+	margin: 5px 5px;
+    background: #55ACEE;
+    color: white;
+    border-radius: 15px;
+    list-style-type: none;
+}
+
+.colThree:hover {
+    opacity: 0.8;
 }
 
 .footerContainer{

@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
 
 .wrapper {
 	margin:0 auto;
     display:flex;
     justify-content: center;
     background-color: black;
+	background-image: url("food2.jpeg");
+	background-repeat: no-repeat;
+	background-size: cover;
     position: relative;
 }
 .contactForm input[type="text"],
@@ -25,23 +29,27 @@
     margin: 90px 90px;
 }
 .contactForm h3 {
-	color: #e43f5a;
+	color: black;
 	display:block;
-	font-size:28px;
+    font-family: 'Source Sans Pro', sans-serif;
+	font-size: 30px;
 }
 .contactForm h4 {
 	margin:5px 0 15px;
 	display:block;
 	font-size:13px;
-    color: #e43f5a;
+    color: black;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
 }
 .contactForm label span {
 	cursor:pointer;
-	color: #e43f5a;
+	color: black;
 	display:block;
 	margin:5px 0;
 	font-weight:900;
-    
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
 }
 .contactForm input[type="text"],
 .contactForm input[type="email"],
@@ -81,6 +89,7 @@
 	background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
 	background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
 	color:#FFF;
+	font-size: 17px;
 	margin:0 0 5px;
 	padding:10px;
 	border-radius:5px;

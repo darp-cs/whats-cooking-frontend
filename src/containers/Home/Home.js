@@ -6,8 +6,6 @@ import Footer from '../../components/footer/footer'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
-
 const Home = () =>{
 
     const test  = 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
@@ -25,7 +23,7 @@ const Home = () =>{
       return (
           <div className = {classes.container}>
               <NavBar/>
-            <h2>What's Cooking?</h2>
+            <h2>Welcome to What's Cooking?</h2>
             <div className = "sliderContainer">
                 <Slider {...settings} >
                 <div>
@@ -49,6 +47,14 @@ const Home = () =>{
                 </Slider>
             </div>
             
+            <div className = "box">
+                <h1>Popular Recipes</h1>
+                <ul>
+                    <li>Baked Chicken and Spinach Flautas</li>
+                    <li>Braised Balsamic Chicken</li>
+                    <li>Pastor Ryan's Chicken Tikka Masala</li>
+                </ul>
+            </div>
 
             <Footer/>
         </div>

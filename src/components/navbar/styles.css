@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 .navbar{
 
     width:100%;
@@ -20,12 +23,10 @@
 
     font-size: 1.35em;
 
-    font-family: Swis721 BT;
-
     text-transform: uppercase;
 
     margin-left: 25px;
-
+    font-family: 'Indie Flower', cursive;
 }
 
 .navbar ul {
@@ -64,7 +65,7 @@
     position: relative;
 
     padding-bottom: 7px;
-
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .navbar li .link::after{
@@ -144,3 +145,5 @@
     width: 100%;
 
 }
+
+

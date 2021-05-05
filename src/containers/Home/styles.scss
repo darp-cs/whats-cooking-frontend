@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+body{
+  background-size: cover;
+  background-color: white;
+  background-image: url("food6.jpeg");
+}
+
+*{
+  box-sizing: border-box;
+}
 
 div img{
   height: calc(50vh - 100px);
@@ -5,15 +16,30 @@ div img{
   margin: 0 auto; 
 } 
 
-
 h2{
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 70px;
+    font-weight: lighter;
+    color: white;
 }
 
 .sliderContainer{
-    padding: 40px;
-    margin-top: 200px;
+    padding: 30px;
+    margin-top: 30px;
 }
 
+.box{
+  background-color: lightgray;
+  width: 35%;
+  opacity: 88%;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+div h1{
+  text-align: left;
+  padding-left: .2cm;
+  opacity: 100%;
+}

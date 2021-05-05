@@ -6,6 +6,9 @@
     justify-content: center;
     align-items: center;
     background-color: blue;
+    background-image: url("food.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   .form-wrapper {
