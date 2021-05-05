@@ -2,9 +2,10 @@ import logo from './logo.svg';
 import classes from './App.module.scss'
 import Home from './containers/Home/Home'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import CustomerAccess from './containers/CustomerAccess/CustomerAccess'
 import Contact from './containers/Contact/Contact'
 import Account from  './containers/Account/Account'
+import SignUp from './components/signup/signup';
+import Login from './components/login/login'
 
 // Everything below will be deleted
 
@@ -16,8 +17,9 @@ function App() {
         <Switch>
           <Route path = "/" exact component = {Home}/>
           <Route path = "/contact" exact component = {Contact}/>
-          <Route path = "/access/:type" exact component = {CustomerAccess}/>
+          <Route path = "/signup" exact component = {SignUp}/>
           <Route path = "/account" exact component = {Account}/>
+          <Route path = "/login" exact component = {Login}/>
         </Switch>
       </Router>
     </div>

@@ -1,6 +1,7 @@
 import React, { Component, useState, useContext } from "react";
 import './styles.css';
 import AccountContext from "../accountContext/accountContext";
+import axios from 'axios';
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -9,18 +10,28 @@ const emailRegex = RegExp(
 const formValid = (formErrors) => {
   let valid = true;
 
-  // validate form errors being empty
   Object.values(formErrors).forEach(val => {
     val.length > 0 && (valid = false);
   });
-
-  // validate the form was filled out
-//   Object.values(rest).forEach(val => {
-//     val === null && (valid = false);
-//   });
-
   return valid;
 };
+
+function login(username, password){
+
+  axios.post(loginUrl, {
+      userName: username,
+      password: password
+  })
+  .then((response) => {
+
+      if(response.data)
+      // We set the token in local storage so we can use it for requests that require auth or to check logged in status
+          localStorage.setItem('token', response.data.token);
+
+  })
+}
+
+const loginUrl = "https://whatscookingapi20210416192744.azurewebsites.net/api/authenticate/login";
 
 const Login = (props)=> {
   
@@ -123,7 +134,7 @@ const Login = (props)=> {
             </div>
             <div className="createAccount">
               <button type="submit">Submit</button>
-              <small onClick={switchToSignup} >Already Have an Account?</small>
+              <small onClick={switchToSignup} >Dont Have an Account? Sign Up</small>
             </div>
           </form>
         </div>
