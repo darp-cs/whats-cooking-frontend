@@ -1,34 +1,16 @@
-import React, { Component, useState, useContext } from "react";
+import React, { Component, useState, useContext, Link } from "react";
 import './styles.css';
 import AccountContext from "../accountContext/accountContext";
-
-const emailRegex = RegExp(
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-);
-
-const formValid = (formErrors) => {
-  let valid = true;
-
-  // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
-    val.length > 0 && (valid = false);
-  });
-
-  // validate the form was filled out
-//   Object.values(rest).forEach(val => {
-//     val === null && (valid = false);
-//   });
-
-  return valid;
-};
+import {useProv} from '../accountContext/accountContext'
 
 const SignUp = (props)=> {
   
-
-    const [firstName, setFN] = useState(0);
-    const [lastName, setLN] = useState(0);
-    const [email, setEmail] = useState(0);
-    const [password, setPass] = useState(0);
+    const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+    const [firstName, setFN] = useState();
+    const [lastName, setLN] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPass] = useState();
+    const [loading, setLoading] = useState(false);
     const initialFormErrors = {
       firstName: "",
       lastName: "",
@@ -36,8 +18,10 @@ const SignUp = (props)=> {
       password: "",
     }
     const [formErrors, setFormErrors] = useState(initialFormErrors);
-    const { switchToSignin } = useContext(AccountContext);
-    const handleSubmit = (e) => {
+    const {register} = useProv()
+    const [error, setError] = useState();
+
+    async function handleSubmit(e){
     e.preventDefault();
 
     if (formValid(formErrors)) {
@@ -51,7 +35,31 @@ const SignUp = (props)=> {
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
+
+    try {
+      setError('')
+      setLoading(true)
+      await register(email, password, firstName, lastName)
+    } catch{
+      setFormErrors('Failed to create account')
+      
+    }
+
+    setLoading(false)
+
+
   };
+
+  const formValid = (formErrors) => {
+    let valid = true;
+  
+    Object.values(formErrors).forEach(val => {
+      val.length > 0 && (valid = false);
+    });
+    return valid;
+  };
+
+
     const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -147,7 +155,7 @@ const SignUp = (props)=> {
             </div>
             <div className="createAccount">
               <button type="submit">Create Account</button>
-              <small onClick={switchToSignin}>Already Have an Account?</small>
+              <small>Already Have an Account? <Link to = "/login">Login </Link></small>
             </div>
           </form>
         </div>
