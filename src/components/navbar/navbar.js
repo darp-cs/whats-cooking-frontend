@@ -7,7 +7,7 @@ const navbar = (props) =>(
 
         <nav className="navbar">
 
-        <h3>logo</h3>
+        <h3>What's Cooking?</h3>
 
         <div className="links">
 
@@ -16,7 +16,6 @@ const navbar = (props) =>(
             <li><Link className = 'link' to="/">Home</Link></li>
             <li><Link className = 'link' to="/access/login">Login/Register</Link></li>
             <li><Link className = 'link' to="/contact">Contact</Link></li>
-
             </ul>
 
         </div>
