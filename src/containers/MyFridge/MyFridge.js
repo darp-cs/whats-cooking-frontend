@@ -38,9 +38,12 @@ const MyFridge = () =>{
         <NavBar/>
         <div className = {classes.Wrapper}>
             <div className  = {classes.Grid}>
-                <Ingredients ingredients = {prop}/>
-                <div  className = {classes.Suggested}>
-                    Suggested
+                <div className ={classes.IngredientsContainer}>
+                    <Ingredients ingredients = {prop}/>
+                </div>
+                
+                <div  className = {classes.SuggestedContainer}>
+                    <div>Suggested</div>
                 </div>
             </div>
         </div>
