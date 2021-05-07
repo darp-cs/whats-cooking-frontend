@@ -1,28 +1,32 @@
-import logo from './logo.svg';
 import classes from './App.module.scss'
 import Home from './containers/Home/Home'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Contact from './containers/Contact/Contact'
-import Account from  './containers/Account/Account'
+import MyFridge from  './containers/MyFridge/MyFridge'
 import SignUp from './components/signup/signup';
 import Login from './components/login/login'
+import {AccProvider} from './components/accountContext/accountContext'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 
-// Everything below will be deleted
 
 function App() {
   return (
-
-    <div className = {classes.app}>
-      <Router>
-        <Switch>
-          <Route path = "/" exact component = {Home}/>
-          <Route path = "/contact" exact component = {Contact}/>
-          <Route path = "/signup" exact component = {SignUp}/>
-          <Route path = "/account" exact component = {Account}/>
-          <Route path = "/login" exact component = {Login}/>
-        </Switch>
-      </Router>
-    </div>
+    
+      <div className = {classes.app}>
+        <Router>
+        <AccProvider>  
+          <Switch>
+            <Route path = "/" exact component = {Home}/>
+            <Route path = "/contact"  component = {Contact}/>
+            <Route path = "/signup"  component = {SignUp}/>
+            <Route path = "/fridge"  component = {MyFridge}/>
+            {/* <PrivateRoute exact path = "/" component = {MyFridge}/> */}
+            <Route path = "/login"  component = {Login}/>
+          </Switch>
+          </AccProvider>
+        </Router>
+      </div>
+    
   );
 }
 

@@ -7,19 +7,19 @@ const Footer = () =>(
 
         <ul className = {classes.colOne}>
             <li>
-                <a href = "www.instagram.com" class = "fa fa-instagram"></a>
+                <a href = "www.instagram.com" className = "fa fa-instagram"></a>
             </li>
         </ul>
 
         <ul className = {classes.colTwo}>
             <li>
-                <a href = "www.facebook.com" class = "fa fa-facebook"></a>
+                <a href = "www.facebook.com" className = "fa fa-facebook"></a>
             </li>
         </ul>
 
         <ul className = {classes.colThree}>
             <li>
-                <a href = "www.twitter.com" class = "fa fa-twitter" target="_blank"></a>
+                <a href = "www.twitter.com" className = "fa fa-twitter" target="_blank"></a>
             </li>
         </ul>
 

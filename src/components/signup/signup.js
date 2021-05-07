@@ -1,9 +1,12 @@
-import React, { Component, useState, useContext, Link } from "react";
+import React, { Component, useState, useContext } from "react";
+import {Link} from 'react-router-dom';
+import NavBar from '../navbar/navbar';
+import Footer from '../footer/footer';
 import './styles.css';
 import AccountContext from "../accountContext/accountContext";
 import {useProv} from '../accountContext/accountContext'
 
-const SignUp = (props)=> {
+const SignUp = ()=> {
   
     const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
     const [firstName, setFN] = useState();
@@ -22,77 +25,42 @@ const SignUp = (props)=> {
     const [error, setError] = useState();
 
     async function handleSubmit(e){
-    e.preventDefault();
+      e.preventDefault();
 
-    if (formValid(formErrors)) {
-      console.log(`
-        --SUBMITTING--
-        First Name: ${firstName}
-        Last Name: ${lastName}
-        Email: ${email}
-        Password: ${password}
-      `);
-    } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
-    }
+      // if (formValid(formErrors)) {
 
-    try {
-      setError('')
-      setLoading(true)
-      await register(email, password, firstName, lastName)
-    } catch{
-      setFormErrors('Failed to create account')
-      
-    }
+      //   register(email, password, firstName, lastName)
+      // } else {
+      //   console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+      // }
 
-    setLoading(false)
+      try {
+        setError('')
+        setLoading(true)
+        await register(email, password, firstName, lastName)
+      } catch{
+        setError('Failed to create account')  
+      }
+
+      setLoading(false)
 
 
-  };
-
-  const formValid = (formErrors) => {
-    let valid = true;
-  
-    Object.values(formErrors).forEach(val => {
-      val.length > 0 && (valid = false);
-    });
-    return valid;
-  };
-
-
-    const handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    console.log(e.target)
-    let err = { ...formErrors };
-    console.log(err)
-    switch (name) {
-      case "firstName":
-        err.firstName =
-          value.length < 3 ? "minimum 3 characaters required" : value;
-        break;
-      case "lastName":
-        err.lastName =
-          value.length < 3 ? "minimum 3 characaters required" : value;
-        break;
-      case "email":
-        err.email = emailRegex.test(value)
-          ? value
-          : "invalid email address";
-        break;
-      case "password":
-        err.password =
-          value.length < 6 ? "minimum 6 characaters required" : value;
-        break;
-      default:
-        break;
-    }
-        setFormErrors(err)
-   };
-
+    };
     
 
+    const formValid = (fE) => {
+      let valid = true;
+      Object.values(fE).forEach(val => {
+        val.length > 0 && (valid = false);
+      });
+      return valid;
+  };
+
+
+
     return (
+      <>
+        <NavBar/>
       <div className="wrapper">
         <div className="form-wrapper">
           <h1>Create Account</h1>
@@ -105,7 +73,6 @@ const SignUp = (props)=> {
                 type="text"
                 name="firstName"
                 noValidate
-                onChange={handleChange}
               />
               {formErrors.firstName.length > 0 && (
                 <span className="errorMessage">{formErrors.firstName}</span>
@@ -119,7 +86,7 @@ const SignUp = (props)=> {
                 type="text"
                 name="lastName"
                 noValidate
-                onChange={handleChange}
+
               />
               {formErrors.lastName.length > 0 && (
                 <span className="errorMessage">{formErrors.lastName}</span>
@@ -133,7 +100,6 @@ const SignUp = (props)=> {
                 type="email"
                 name="email"
                 noValidate
-                onChange={handleChange}
               />
               {formErrors.email.length > 0 && (
                 <span className="errorMessage">{formErrors.email}</span>
@@ -147,19 +113,20 @@ const SignUp = (props)=> {
                 type="password"
                 name="password"
                 noValidate
-                onChange={handleChange}
               />
               {formErrors.password.length > 0 && (
                 <span className="errorMessage">{formErrors.password}</span>
               )}
             </div>
             <div className="createAccount">
-              <button type="submit">Create Account</button>
+              <button disable = {loading} type="submit">Create Account</button>
               <small>Already Have an Account? <Link to = "/login">Login </Link></small>
             </div>
           </form>
         </div>
       </div>
+      <Footer/>
+        </>
     );
   }
 

@@ -14,7 +14,8 @@ const navbar = (props) =>(
             <ul>
 
             <li><Link className = 'link' to="/">Home</Link></li>
-            <li><Link className = 'link' to="/access/login">Login/Register</Link></li>
+            <li><Link className = 'link' to="/login">Login</Link></li>
+            <li><Link className = 'link' to="/signup">Register</Link></li>
             <li><Link className = 'link' to="/contact">Contact</Link></li>
             </ul>
 
