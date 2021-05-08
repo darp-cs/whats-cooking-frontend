@@ -16,6 +16,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const {login} = useProv()
+  const {getUserInfo} = useProv()
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const history = useHistory()
@@ -24,8 +25,6 @@ function Login() {
   async function handleSubmit(e){
     e.preventDefault();
 
-    console.log(e.target[0].value)
-    console.log(e.target[1].value)
     try {
       setError('')
       setLoading(true)
