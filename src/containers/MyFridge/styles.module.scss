@@ -3,10 +3,34 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.SuggestedContainer{
-    color:white;
+
+  background-color: lightgrey;
+  opacity: 88%;
+  width: 550px;
+  height: 500px;
+  padding: 30px;
+  padding-top: 10px;
+  Margin-bottom: 200px;
+  Margin-top: 30px;
 }
 
 .IngredientsContainer{
-    
+  background-color: lightgrey;
+  opacity: 88%;
+  width: 550px;
+  height: 500px;
+  padding: 30px;
+  padding-top: 10px;
+  Margin-bottom: 200px;
+  Margin-top: 30px;
+  Margin-left: 30px;
 }
+
+.IngredientsContainer h3{
+ font-size: 30px;
+}
+
+.SuggestedContainer h3{
+ font-size: 30px;
+}
+
