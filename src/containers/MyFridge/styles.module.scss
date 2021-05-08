@@ -3,7 +3,7 @@
     grid-template-columns: 1fr 1fr;
 }
 
-
+.SuggestedContainer{
   background-color: lightgrey;
   opacity: 88%;
   width: 550px;
@@ -28,9 +28,11 @@
 
 .IngredientsContainer h3{
  font-size: 30px;
+ text-decoration: underline;
 }
 
 .SuggestedContainer h3{
  font-size: 30px;
+ text-decoration: underline;
 }
 

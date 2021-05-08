@@ -7,15 +7,17 @@ const Account = () =>{
 
 
 const {getUserInfo} = useProv()
+const test  = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
 
 return(
     <>
         <NavBar/>
         <div className = {classes.wrapper}>
-            <h2> </h2>
+            <h2>John Smith</h2>
+            <h3> john.smith@gmail.com</h3>
             <div className = {classes.infoContainer}>
-            
             </div>
+            <div> <img src = {test}/> </div>
         </div>
         <Footer/>
     </>
