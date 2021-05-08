@@ -7,6 +7,8 @@ import SignUp from './components/signup/signup';
 import Login from './components/login/login'
 import {AccProvider} from './components/accountContext/accountContext'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
+import Account from  './containers/Account/Account'
+import Recipes from './containers/Recipes/Recipes'
 
 
 function App() {
@@ -21,6 +23,10 @@ function App() {
             <Route path = "/signup"  component = {SignUp}/>
             <Route path = "/fridge"  component = {MyFridge}/>
             {/* <PrivateRoute exact path = "/" component = {MyFridge}/> */}
+            <Route path = "/account"  component = {Account}/>
+            {/* <PrivateRoute exact path = "/" component = {Account}/> */}
+            <Route path = "/recipes"  component = {Recipes}/>
+            {/* <PrivateRoute exact path = "/" component = {Account}/> */}
             <Route path = "/login"  component = {Login}/>
           </Switch>
           </AccProvider>

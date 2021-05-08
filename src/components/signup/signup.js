@@ -8,11 +8,7 @@ import {useProv} from '../accountContext/accountContext'
 
 const SignUp = ()=> {
   
-    const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
-    const [firstName, setFN] = useState();
-    const [lastName, setLN] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPass] = useState();
+
     const [loading, setLoading] = useState(false);
     const initialFormErrors = {
       firstName: "",
@@ -27,17 +23,16 @@ const SignUp = ()=> {
     async function handleSubmit(e){
       e.preventDefault();
 
-      // if (formValid(formErrors)) {
-
-      //   register(email, password, firstName, lastName)
-      // } else {
-      //   console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
-      // }
+      let temail = e.target[0].value
+      let tpassword = e.target[0].value
+      let tfirstName = e.target[0].value
+      let tlastName = e.target[0].value
+      
 
       try {
         setError('')
         setLoading(true)
-        await register(email, password, firstName, lastName)
+        await register(temail, tpassword, tfirstName, tlastName)
       } catch{
         setError('Failed to create account')  
       }

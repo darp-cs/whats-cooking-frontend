@@ -1,5 +1,5 @@
 import React, { Component, useState, useContext} from "react";
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import NavBar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import {useProv} from '../accountContext/accountContext'
@@ -18,16 +18,19 @@ function Login() {
   const {login} = useProv()
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
+  const history = useHistory()
 
 
   async function handleSubmit(e){
     e.preventDefault();
 
-
+    console.log(e.target[0].value)
+    console.log(e.target[1].value)
     try {
       setError('')
       setLoading(true)
-      await login(email, password)
+      await login(e.target[0].value, e.target[1].value)
+      history.push("/account")
     } catch{
       setError('Failed to Login')  
     }
