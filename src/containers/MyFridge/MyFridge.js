@@ -39,11 +39,13 @@ const MyFridge = () =>{
         <div className = {classes.Wrapper}>
             <div className  = {classes.Grid}>
                 <div className ={classes.IngredientsContainer}>
+		<h3>Ingredients</h3>
+		<div></div>
                     <Ingredients ingredients = {prop}/>
                 </div>
                 
                 <div  className = {classes.SuggestedContainer}>
-                    <div>Suggested</div>
+                    <h3>Suggested</h3>
                 </div>
             </div>
         </div>
