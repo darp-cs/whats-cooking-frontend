@@ -7,9 +7,9 @@ import axios from 'axios';
      return useContext(AccountContext)
  }
  export function AccProvider({children}){
-    const [currUser, setCurrUser] = useState()
-    const [ingredients, setIngredients] = useState()
-    const [recipes, setRecipes] = useState()
+    const [currUser, setCurrUser] = useState("")
+    const [ingredients, setIngredients] = useState("")
+    const [recipes, setRecipes] = useState("")
     const value = {
         getUserRecipes, 
         register,
@@ -18,13 +18,16 @@ import axios from 'axios';
         getUserIngredients,
         addUserIngredients,
         getUserInfo,
-        logout
+        logout,
+        ingredients,
+        recipes,
+        currUser,
     }
     let registerUrl = "https://whatscookingapi20210416192744.azurewebsites.net/api/authenticate/register";
     let loginUrl = "https://whatscookingapi20210416192744.azurewebsites.net/api/authenticate/login";
     let recipeUrl  = "https://whatscookingapi20210416192744.azurewebsites.net/api/UserRecipe"
     let ingredientsUrl = "https://whatscookingapi20210416192744.azurewebsites.net/api/UserRecipe"
-    let userUrl = "https://whatscookingapi20210416192744.azurewebsites.net/api/UserRecipe"
+    let userUrl = "https://whatscookingapi20210416192744.azurewebsites.net/api/authenticate/userprofile"
 
 
 
@@ -46,17 +49,21 @@ import axios from 'axios';
         .then((response) => {
             if(response.data)
                 localStorage.setItem('token', response.data.token);
-      
         })
       }
 
-      function getUserRecipes(){
-          axios.get(recipeUrl,{
+      async function getUserRecipes(){
+        let token = localStorage.getItem('token')
+        let url = recipeUrl
+        return await axios.get(url, {
+            headers:{
+                'Authorization':'Bearer'+token
+            }
+        }).then((response =>{
+            console.log(response)
+        })
             
-          })
-          .then((response) =>{
-              console.log(response)
-          })
+        )
       }
 
       function addUserRecipe(toAdd){
@@ -65,8 +72,17 @@ import axios from 'axios';
           })
       }
 
-      function getUserIngredients(){
-
+      async function getUserIngredients(){
+        let token = localStorage.getItem('token')
+        let url = ingredientsUrl
+        return await axios.get(url, {
+            headers:{
+                'Authorization':'Bearer '+token
+            }
+        }).then((response =>{
+            console.log(response)
+        }) 
+        )
       }
 
       function addUserIngredients(toAdd){
@@ -78,25 +94,26 @@ import axios from 'axios';
         let url = userUrl
         return await axios.get(url, {
             headers:{
-                'Authorization':'Bearer'+token
+                'Authorization':'Bearer '+token
             }
         }).then((response =>{
-            console.log(response)
+            let user = {
+                "firstName": response.data.firstName,
+                "lastName": response.data.lastName,
+                "email": response.data.email,
+            }
+
+            setCurrUser(user)
+            
         })
             
         )
-
-        
       }
 
 
       function logout(){
         localStorage.removeItem('token');
     }
-
-    // useEffect( () =>{
-    //     setCurrUser(user)
-    // }, [])
 
     
     return (
